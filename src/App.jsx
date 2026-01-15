@@ -3,6 +3,8 @@ import Logo from "./components/Logo";
 import MainNavigation from "./components/MainNavigation";
 import DesktopMenu from "./components/DesktopMenu";
 import ThemeToggle from "./components/ThemeToggle";
+import illustrationIntro from "./assets/images/illustration-intro.png";
+import Hero from "./components/Hero";
 
 function App() {
   return (
@@ -18,6 +20,17 @@ function App() {
           <ThemeToggle />
         </DesktopMenu>
       </Header>
+      <Hero
+        id="hero"
+        className="bg-curvy-light-mode dark:bg-curvy-dark-mode"
+        image={illustrationIntro}
+        imageAlt="File storage illustration"
+        heading="All your files in one secure location, assessible anywhere."
+        description="Fylo stores all your most important files in one secure location.
+        Access them wherever you need, share and collaborate with friends
+        family, and co-workers."
+        ctaText="Get Started"
+      />
     </>
   );
 }
