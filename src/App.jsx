@@ -13,9 +13,15 @@ import Testimonials from "./components/Testimonials";
 import TestimonialCard from "./components/TestimonialCard";
 import Newsletter from "./components/Newsletter";
 import NewsletterForm from "./components/NewsletterForm";
+import Footer from "./components/Footer";
+import FooterContactInfo from "./components/FooterContactInfo";
+import FooterNavigation from "./components/FooterNavigation";
+import FooterSocialLinks from "./components/FooterSocialLinks";
 
 import stayProductive from "./assets/images/illustration-stay-productive.png";
 import quotes from "./assets/images/bg-quotes.png";
+import phone from "./assets/images/icon-phone.svg";
+import email from "./assets/images/icon-email.svg";
 
 import features from "./data/features";
 import productive from "./data/productive";
@@ -112,6 +118,16 @@ function App() {
           ariaLabel="Sign up form"
         />
       </Newsletter>
+      <Footer role="contentinfo" className="bg-darkBlue2" ariaLabel="Footer">
+        <FooterContactInfo
+          phoneIcon={phone}
+          phoneNumber="+1-543-123-4567"
+          emailIcon={email}
+          emailAddress="example@fylo.com"
+        />
+        <FooterNavigation ariaLabel="Footer navigation" />
+        <FooterSocialLinks ariaLabel="Socail media" />
+      </Footer>
     </>
   );
 }
