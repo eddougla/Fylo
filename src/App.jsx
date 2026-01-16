@@ -8,8 +8,12 @@ import Hero from "./components/Hero";
 import Features from "./components/Features";
 import FeatureRow from "./components/FeatureRow";
 import FeatureCard from "./components/FeatureCard";
+import Productive from "./components/Productive";
+
+import stayProductive from "./assets/images/illustration-stay-productive.png";
 
 import features from "./data/features";
+import productive from "./data/productive";
 
 function App() {
   return (
@@ -55,6 +59,20 @@ function App() {
           </FeatureRow>
         ))}
       </Features>
+      <Productive
+        id="productive"
+        img={stayProductive}
+        imgAlt="Team collaboration illustration"
+        heading="Stay productive, wherever you are."
+        ariaLabel="productive-heading"
+        className="bg-white dark:bg-darkBlue"
+      >
+        {productive.map((paragraph) => (
+          <p key={paragraph.id} className="text-md md:text-lg">
+            {paragraph.paragraph}
+          </p>
+        ))}
+      </Productive>
     </>
   );
 }
