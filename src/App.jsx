@@ -9,11 +9,15 @@ import Features from "./components/Features";
 import FeatureRow from "./components/FeatureRow";
 import FeatureCard from "./components/FeatureCard";
 import Productive from "./components/Productive";
+import Testimonials from "./components/Testimonials";
+import TestimonialCard from "./components/TestimonialCard";
 
 import stayProductive from "./assets/images/illustration-stay-productive.png";
+import quotes from "./assets/images/bg-quotes.png";
 
 import features from "./data/features";
 import productive from "./data/productive";
+import testimonials from "./data/testimonials";
 
 function App() {
   return (
@@ -65,6 +69,8 @@ function App() {
         imgAlt="Team collaboration illustration"
         heading="Stay productive, wherever you are."
         ariaLabel="productive-heading"
+        linkText="See how Fylo works"
+        linkHref="#"
         className="bg-white dark:bg-darkBlue"
       >
         {productive.map((paragraph) => (
@@ -73,6 +79,23 @@ function App() {
           </p>
         ))}
       </Productive>
+      <Testimonials
+        id="testimonials"
+        className="bg-gray-50 dark:bg-darkBlue"
+        ariaLabel="Customer testimonials"
+        img={quotes}
+        imgAlt="Quote icon"
+      >
+        {testimonials.map((testimonial) => (
+          <TestimonialCard
+            key={testimonial.id}
+            quote={testimonial.quote}
+            title={testimonial.title}
+            name={testimonial.name}
+            avatar={testimonial.avatar}
+          />
+        ))}
+      </Testimonials>
     </>
   );
 }

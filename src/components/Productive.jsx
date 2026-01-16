@@ -1,3 +1,5 @@
+import arrow from "../assets/images/icon-arrow.svg";
+
 function Productive({
   id,
   img,
@@ -5,6 +7,8 @@ function Productive({
   heading,
   className = "",
   ariaLabel,
+  linkText,
+  linkHref,
   children,
 }) {
   return (
@@ -22,6 +26,21 @@ function Productive({
               {heading}
             </h2>
             {children}
+            <div className="block mt-4">
+              <a
+                href={linkHref}
+                className="border-b border-accentCyan text-accentCyan"
+                aria-label="Learn how Fylo works"
+              >
+                {linkText}
+                <img
+                  src={arrow}
+                  alt=""
+                  class="inline pb-2"
+                  aria-hidden="true"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>
