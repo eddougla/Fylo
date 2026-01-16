@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 function FeatureCard({ icon, iconAlt, title, description }) {
   return (
     <article className="flex flex-col items-center space-y-2 md:w-1/2">
@@ -9,4 +11,4 @@ function FeatureCard({ icon, iconAlt, title, description }) {
     </article>
   );
 }
-export default FeatureCard;
+export default memo(FeatureCard);

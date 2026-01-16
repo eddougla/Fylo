@@ -29,14 +29,14 @@ function Productive({
             <div className="block mt-4">
               <a
                 href={linkHref}
-                className="border-b border-accentCyan text-accentCyan"
+                className="border-b border-accentCyan text-accentCyan focus:outline-none focus:ring-2 focus:ring-accentCyan focus:ring-offset-2 rounded-sm"
                 aria-label="Learn how Fylo works"
               >
                 {linkText}
                 <img
                   src={arrow}
                   alt=""
-                  class="inline pb-2"
+                  className="inline pb-2"
                   aria-hidden="true"
                 />
               </a>

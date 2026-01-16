@@ -28,7 +28,7 @@ function Hero({
         </p>
         <Button
           type="button"
-          className="p-3 rounded-full w-52 bg-accentCyan hover:scale-95"
+          className="p-3 rounded-full w-52 bg-accentCyan hover:scale-95 focus:outline-none focus:ring-4 focus:ring-accentCyan focus:ring-offset-2"
           ariaLabel="Get started with Fylo"
         >
           {ctaText}

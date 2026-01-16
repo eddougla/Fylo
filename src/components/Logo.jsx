@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 function Logo({ className = "", label, role }) {
   return (
     <div
@@ -7,4 +9,4 @@ function Logo({ className = "", label, role }) {
     ></div>
   );
 }
-export default Logo;
+export default memo(Logo);

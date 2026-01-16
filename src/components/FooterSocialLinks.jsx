@@ -1,3 +1,4 @@
+import { memo } from "react";
 import footerSocialLinks from "../data/footerSocialLinks";
 
 function FooterSocialLinks({ ariaLabel }) {
@@ -6,7 +7,7 @@ function FooterSocialLinks({ ariaLabel }) {
       <ul className="flex justify-center pb-10 space-x-3">
         {footerSocialLinks.map((link) => (
           <li key={link.platform}>
-            <a href={link.url} aria-label={link.platform}>
+            <a href={link.url} aria-label={link.platform} className="focus:outline-none focus:ring-2 focus:ring-accentCyan focus:ring-offset-2 focus:ring-offset-darkBlue2 rounded-full">
               <img
                 src={link.icon}
                 alt={link.platform}
@@ -19,4 +20,4 @@ function FooterSocialLinks({ ariaLabel }) {
     </nav>
   );
 }
-export default FooterSocialLinks;
+export default memo(FooterSocialLinks);

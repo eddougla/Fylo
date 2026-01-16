@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import Header from "./components/Header";
 import Logo from "./components/Logo";
 import MainNavigation from "./components/MainNavigation";
@@ -7,16 +8,25 @@ import illustrationIntro from "./assets/images/illustration-intro.png";
 import Hero from "./components/Hero";
 import Features from "./components/Features";
 import FeatureRow from "./components/FeatureRow";
-import FeatureCard from "./components/FeatureCard";
+import LoadingSpinner from "./components/LoadingSpinner";
 import Productive from "./components/Productive";
 import Testimonials from "./components/Testimonials";
-import TestimonialCard from "./components/TestimonialCard";
 import Newsletter from "./components/Newsletter";
 import NewsletterForm from "./components/NewsletterForm";
 import Footer from "./components/Footer";
 import FooterContactInfo from "./components/FooterContactInfo";
 import FooterNavigation from "./components/FooterNavigation";
 import FooterSocialLinks from "./components/FooterSocialLinks";
+
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const FeatureCard = lazy(() =>
+  delay(2000).then(() => import("./components/FeatureCard"))
+);
+
+const TestimonialCard = lazy(() =>
+  delay(4000).then(() => import("./components/TestimonialCard"))
+);
 
 import stayProductive from "./assets/images/illustration-stay-productive.png";
 import quotes from "./assets/images/bg-quotes.png";
@@ -57,19 +67,33 @@ function App() {
         className="bg-gray-50 dark:bg-darkBlue1"
         ariaLabel="Features"
       >
-        {features.map((feature) => (
-          <FeatureRow key={feature.id} className={feature.className}>
-            {feature.rows.map((row) => (
-              <FeatureCard
-                key={row.icon}
-                icon={row.icon}
-                iconAlt={row.iconAlt}
-                title={row.title}
-                description={row.description}
-              />
-            ))}
-          </FeatureRow>
-        ))}
+        <Suspense
+          fallback={
+            <LoadingSpinner className="py-20" color="border-accentCyan" />
+          }
+        >
+          {features && features.length > 0 ? (
+            features.map((feature) => (
+              <FeatureRow key={feature.id} className={feature.className}>
+                {feature.rows.map((row) => (
+                  <FeatureCard
+                    key={row.icon}
+                    icon={row.icon}
+                    iconAlt={row.iconAlt}
+                    title={row.title}
+                    description={row.description}
+                  />
+                ))}
+              </FeatureRow>
+            ))
+          ) : (
+            <div className="flex justify-center items-center py-20">
+              <p className="text-gray-500 dark:text-gray-400">
+                No features available at the moment.
+              </p>
+            </div>
+          )}
+        </Suspense>
       </Features>
       <Productive
         id="productive"
@@ -94,15 +118,32 @@ function App() {
         img={quotes}
         imgAlt="Quote icon"
       >
-        {testimonials.map((testimonial) => (
-          <TestimonialCard
-            key={testimonial.id}
-            quote={testimonial.quote}
-            title={testimonial.title}
-            name={testimonial.name}
-            avatar={testimonial.avatar}
-          />
-        ))}
+        <Suspense
+          fallback={
+            <LoadingSpinner
+              className="py-20 w-full"
+              color="border-accentCyan"
+            />
+          }
+        >
+          {testimonials && testimonials.length > 0 ? (
+            testimonials.map((testimonial) => (
+              <TestimonialCard
+                key={testimonial.id}
+                quote={testimonial.quote}
+                title={testimonial.title}
+                name={testimonial.name}
+                avatar={testimonial.avatar}
+              />
+            ))
+          ) : (
+            <div className="flex justify-center items-center py-20 w-full">
+              <p className="text-gray-500 dark:text-gray-400">
+                No testimonials available at the moment.
+              </p>
+            </div>
+          )}
+        </Suspense>
       </Testimonials>
       <Newsletter
         id="early-access"
@@ -126,7 +167,7 @@ function App() {
           emailAddress="example@fylo.com"
         />
         <FooterNavigation ariaLabel="Footer navigation" />
-        <FooterSocialLinks ariaLabel="Socail media" />
+        <FooterSocialLinks ariaLabel="Social media" />
       </Footer>
     </>
   );

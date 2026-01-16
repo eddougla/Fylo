@@ -1,3 +1,4 @@
+import { memo } from "react";
 import footerNavigation from "../data/footerNavigation";
 
 function FooterNavigation({ ariaLabel }) {
@@ -10,7 +11,7 @@ function FooterNavigation({ ariaLabel }) {
         <ul key={list.id} className="flex flex-col space-y-3">
           {list.columns.map((column) => (
             <li key={column.label}>
-              <a href={column.href} className="hover:text-accentCyan">
+              <a href={column.href} className="hover:text-accentCyan focus:outline-none focus:ring-2 focus:ring-accentCyan focus:ring-offset-2 focus:ring-offset-darkBlue2 rounded-sm">
                 {column.label}
               </a>
             </li>
@@ -20,4 +21,4 @@ function FooterNavigation({ ariaLabel }) {
     </nav>
   );
 }
-export default FooterNavigation;
+export default memo(FooterNavigation);

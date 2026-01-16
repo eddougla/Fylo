@@ -1,4 +1,11 @@
-function FooterContactInfo({ phoneIcon, phoneNumber, emailIcon, emailAddress }) {
+import { memo } from "react";
+
+function FooterContactInfo({
+  phoneIcon,
+  phoneNumber,
+  emailIcon,
+  emailAddress,
+}) {
   return (
     <address className="mt-10 space-y-6 not-italic">
       <div className="flex items-center space-x-3 md:-mt-10">
@@ -20,4 +27,4 @@ function FooterContactInfo({ phoneIcon, phoneNumber, emailIcon, emailAddress }) 
     </address>
   );
 }
-export default FooterContactInfo;
+export default memo(FooterContactInfo);

@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 function TestimonialCard({ quote, avatar, name, title }) {
   return (
     <article className="flex flex-col p-10 space-y-6 rounded-lg bg-gray-100 dark:bg-darkBlue3 md:w-1/3">
@@ -14,4 +16,4 @@ function TestimonialCard({ quote, avatar, name, title }) {
     </article>
   );
 }
-export default TestimonialCard;
+export default memo(TestimonialCard);

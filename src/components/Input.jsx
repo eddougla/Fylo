@@ -1,10 +1,10 @@
-function Input({ type, placeholder, ariaLabel, ...props }) {
+function Input({ type, placeholder, ariaLabel, className, ...props }) {
   return (
     <input
       type={type}
-      className="w-full px-10 py-3 rounded-full focus:outline-none"
       placeholder={placeholder}
       aria-label={ariaLabel}
+      className={`focus:outline-none focus:ring-2 focus:ring-accentCyan ${className || ''}`}
       {...props}
     />
   );
