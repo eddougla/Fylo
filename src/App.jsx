@@ -11,6 +11,8 @@ import FeatureCard from "./components/FeatureCard";
 import Productive from "./components/Productive";
 import Testimonials from "./components/Testimonials";
 import TestimonialCard from "./components/TestimonialCard";
+import Newsletter from "./components/Newsletter";
+import NewsletterForm from "./components/NewsletterForm";
 
 import stayProductive from "./assets/images/illustration-stay-productive.png";
 import quotes from "./assets/images/bg-quotes.png";
@@ -96,6 +98,20 @@ function App() {
           />
         ))}
       </Testimonials>
+      <Newsletter
+        id="early-access"
+        className="dark:bg-darkBlue2"
+        ariaLabel="early-access-heading"
+        heading="Get early access today"
+        description="It only takes a minute to sign up and our free starter tier is
+        extremely generous. If you have any questions, our support team would
+        be happy to help you."
+      >
+        <NewsletterForm
+          ctaText="Get Started For Free"
+          ariaLabel="Sign up form"
+        />
+      </Newsletter>
     </>
   );
 }
